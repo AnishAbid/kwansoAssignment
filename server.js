@@ -9,7 +9,8 @@ const Config = require('node-json-db/dist/lib/JsonDBConfig').Config
 var randomize = require('randomatic');
 var db = new JsonDB(new Config("myDataBase", true, true, '/'));
 
-app.get('/user', authenticateToken, (req,res)=>{
+//Get user 
+app.get('/users', authenticateToken, (req,res)=>{
     let data = db.getData("/users");
 res.json(data.filter(user =>
     {
@@ -18,6 +19,8 @@ res.json(data.filter(user =>
     }
     ))
 })
+
+//Registation
 app.post('/register',(req,res)=>{
 let newOBJ={
     email:req.body.email,
@@ -25,8 +28,10 @@ let newOBJ={
     id:randomize('0000')
 }
     db.push("/users",[newOBJ],true);
-    res.send({ user: newOBJ })
+    res.json({ user: newOBJ })
 })
+
+//Login
 app.post('/login',validateuser,(req,res)=>{
     //authenticate user
     const email = req.body.email
@@ -36,6 +41,8 @@ app.post('/login',validateuser,(req,res)=>{
     const refreshToken = jwt.sign(user,process.env.REFESH_TOKEN_SECRET)
     res.json({accessToken: accessToken,refreshToken:refreshToken})
 })
+
+//Add task
 app.post('/create-task',authenticateToken,(req,res)=>{
     let newTask= {
         name:req.body.name,
@@ -43,9 +50,11 @@ app.post('/create-task',authenticateToken,(req,res)=>{
     }
     db.push("/tasks",[newTask],true);
     let data = db.getData("/tasks");
-    res.send( { task: newTask })
+    res.json( { task: newTask })
 
 })
+
+//Get tasks
 app.get('/list-tasks',authenticateToken,(req,res)=>{
     let data = db.getData("/tasks");
     res.json({tasks:data})

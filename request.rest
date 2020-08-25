@@ -1,16 +1,16 @@
-GET  http://localhost:42000/user
+GET  http://localhost:42000/users
 Authorization: Bearor eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGRvbWFpbi5jb20iLCJwYXNzd29yZCI6ImFzc3dvcmQiLCJpYXQiOjE1OTgzNjE2ODEsImV4cCI6MTU5ODM2MTY5Nn0.GxQuP94af5sutOEUwmrifwRFIyd3c1nfX0hnt9goDrI
 ###
 
 POST http://localhost:42000/login
 Content-Type: application/json
 
- { "email": "user2@domain.com", "password": "password" }
+ { "email": "user3@domain.com", "password": "password" }
 ###
 POST http://localhost:42000/register
 Content-Type: application/json
 
- { "email": "user2@domain.com","password": "password" }
+ { "email": "user3@domain.com","password": "password" }
 ###
   POST http://localhost:42000/create-task
 Content-Type: application/json
