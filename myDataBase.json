@@ -1,0 +1,22 @@
+{
+    "test1": [
+        {
+            "email": "user1@domain.com",
+            "password": "password",
+            "id": "8673"
+        }
+    ],
+    "users": [
+        {
+            "email": "user2@domain.com",
+            "password": "password",
+            "id": "8820"
+        }
+    ],
+    "tasks": [
+        {
+            "name": "test task",
+            "id": "6788"
+        }
+    ]
+}
