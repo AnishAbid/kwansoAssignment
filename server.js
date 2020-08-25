@@ -8,36 +8,6 @@ const JsonDB =  require('node-json-db').JsonDB;
 const Config = require('node-json-db/dist/lib/JsonDBConfig').Config
 var randomize = require('randomatic');
 var db = new JsonDB(new Config("myDataBase", true, true, '/'));
-// db.push("/test1",[{
-//     username:'anish',
-//     title:'post1'
-// },
-//     {
-//         username:'abid',
-//         title:'post2'
-//     },
-//     {
-//         username:'ashan',
-//         title:'post3'
-//     }
-// ],false);
-//var data = db.getData("/test1");
-//console.log(data)
-
-
-// const posts = [{
-//     username:'anish',
-//     title:'post1'
-// },
-// {
-//     username:'abid',
-//     title:'post2'
-// },
-// {
-//     username:'ashan',
-//     title:'post3'
-// }
-// ]
 
 app.get('/user', authenticateToken, (req,res)=>{
     let data = db.getData("/users");
