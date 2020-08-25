@@ -27,7 +27,7 @@ let newOBJ={
     password:req.body.password,
     id:randomize('0000')
 }
-    db.push("/users",[newOBJ],true);
+    db.push("/users",[newOBJ],false);
     res.json({ user: newOBJ })
 })
 
@@ -48,7 +48,7 @@ app.post('/create-task',authenticateToken,(req,res)=>{
         name:req.body.name,
         id:randomize('0000')
     }
-    db.push("/tasks",[newTask],true);
+    db.push("/tasks",[newTask],false);
     let data = db.getData("/tasks");
     res.json( { task: newTask })
 
